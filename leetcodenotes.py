@@ -18,7 +18,6 @@ class Solution(object):
         return False
 
 #242. Valid Anagram
-
 class Solution(object):
     def isAnagram(self, s, t):
         """
@@ -37,3 +36,19 @@ class Solution(object):
 
         return map1 == map2
     
+#1. Two Sum
+class Solution(object):
+    def twoSum(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        map = {}
+
+        for i,n in enumerate(nums):
+            comp = target - n
+            if comp in map:
+                return [map[comp],i]
+            else:
+                map[n] = i
