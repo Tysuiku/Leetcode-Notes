@@ -52,3 +52,21 @@ class Solution(object):
                 return [map[comp],i]
             else:
                 map[n] = i
+
+#49. Group Anagrams 
+# from collections import defaultdict on leetcode simple tools import is already implemented but best practice to remember
+class Solution(object):
+    def groupAnagrams(self, strs):
+        """
+        :type strs: List[str]
+        :rtype: List[List[str]]
+        """
+        map = defaultdict(list)
+
+        for word in strs:
+            key = [0] * 26
+            for c in word:
+                key[ord(c) - ord('a')] += 1
+            map[tuple(key)].append(word)
+
+        return map.values() 
