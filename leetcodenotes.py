@@ -93,3 +93,32 @@ class Solution(object):
                 res.append(n)
                 if len(res) == k:
                     return res
+
+#238. Product of Array Except Self      
+class Solution(object):
+    def productExceptSelf(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+        res = [1] * len(nums)
+        #[1,1,1,1]
+
+        prefix = 1
+        postfix = 1
+
+        for i in range(len(nums)):
+            res[i] = prefix
+            prefix *= nums[i]
+            #prefix = 24
+            #nums = [1,2,3,4]
+            #res = [1,1,2,6]
+
+        for i in range(len(nums)-1,-1,-1):
+            res[i] *= postfix
+            postfix *= nums[i]
+            #prefix = 24
+            #nums = [1,2,3,4]
+            #res = [24,12,8,6]
+
+        return res
